@@ -103,21 +103,27 @@ vector<string> canonize(string source){
   return result;
 }
 
-multiset<unsigned int> genshingle(vector<string> source){
-  multiset<unsigned int> result;
+vector<unsigned int> genshingle(vector<string> source){
+  vector<unsigned int> result;
   for (int i = 0; i <= source.size() - shingleLen; i++){
     string temp = source[i];
     for (int j = i+1; j < i + shingleLen; j++)
       temp += " " + source[j];
-    result.insert(CRC32(temp));
+    result.push_back(CRC32(temp));
   }
   return result;
 }
 
-double compaire(multiset<unsigned int>cmp1, multiset<unsigned int>cmp2){
-  multiset<unsigned int>intersection;
-  set_intersection(cmp1.begin(), cmp1.end(), cmp2.begin(), cmp2.end(), inserter(intersection, intersection.begin()));
-  return 200.0*intersection.size()/(cmp1.size() + cmp2.size());
+double compaire(vector<unsigned int>cmp1, vector<unsigned int>cmp2){
+  vector<unsigned int>intersection;
+  int same = 0;
+  for (int i = 0; i < cmp1.size(); i++)
+    for (int j = 0; j < cmp2.size(); j++)
+      if (cmp1[i] == cmp2[j]){
+        same++;
+        break;
+      }
+  return 200.0*same/(cmp1.size() + cmp2.size());
 }
 
 int main() {
