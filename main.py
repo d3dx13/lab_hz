@@ -38,8 +38,8 @@ def compaire (source1,source2):
 shingleLen = 3 #длина шингла
 def main():
     time_req = time.time()
-    with open('./text1.txt', 'r', encoding="utf-8") as file1:
-        with open('./text2.txt', 'r', encoding="utf-8") as file2:
+    with open('text1.txt', 'r', encoding="utf-8") as file1:
+        with open('text2.txt', 'r', encoding="utf-8") as file2:
             text1 = file1.read()
             text2 = file2.read()
     cmp1 = genshingle(canonize(text1))
