@@ -4,13 +4,23 @@
 
 #### C++
 
-D:\cpp_test\cmake-build-debug\cpp_test.exe
+D:\shingles-algorithm-python-vs-cpp\cmake-build-debug\cpp_test.exe
 
 100 %
 
 Потрачено: 41.531 секунд
 
 Process finished with exit code 0
+
+---
+
+#### Python 3.7
+
+D:\shingles-algorithm-python-vs-cpp>python main.py
+
+100.0 %
+
+Потрачено: 1.3440008163452148 секунд
 
 ---
 
