@@ -1,6 +1,6 @@
 # shingles algorithm (python vs c++ 11)
 
-####C++
+#### C++
 
 D:\cpp_test\cmake-build-debug\cpp_test.exe
 
