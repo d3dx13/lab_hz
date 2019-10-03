@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import time
 if __name__ == '__build__':
     raise Exception
 
@@ -36,6 +37,7 @@ def compaire (source1,source2):
 
 shingleLen = 3 #длина шингла
 def main():
+    time_req = time.time()
     with open('./text1.txt', 'r', encoding="utf-8") as file1:
         with open('./text2.txt', 'r', encoding="utf-8") as file2:
             text1 = file1.read()
@@ -43,6 +45,8 @@ def main():
     cmp1 = genshingle(canonize(text1))
     cmp2 = genshingle(canonize(text2))
     print(compaire(cmp1,cmp2), '%')
+    time_req = time.time() - time_req
+    print("Потрачено:", time_req, "секунд")
 
 # Start program
 main()

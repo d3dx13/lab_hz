@@ -1,5 +1,3 @@
-// # USE Skillet 
-#include <sstream>
 #include <fstream>
 #include <codecvt>
 #include <iostream>
@@ -9,6 +7,7 @@
 #include <algorithm>
 #include <iterator>
 #include <set>
+#include <ctime>
 
 using namespace std;
 
@@ -49,13 +48,14 @@ unsigned int CRC32(string source){
 	return crc ^ 0xFFFFFFFFUL;
 }
 
-string readFile(const char* filename)
-{
-    wifstream wif(filename);
-    wif.imbue(locale(locale::empty(), new codecvt_utf8<wchar_t>));
-    wstringstream wss;
-    wss << wif.rdbuf();
-    return wss.str();
+string readFile(const string& fileName) {
+    ifstream f(fileName);
+    f.seekg(0, ios::end);
+    size_t size = f.tellg();
+    string s(size, ' ');
+    f.seekg(0);
+    f.read(&s[0], size);
+    return s;
 }
 
 vector<string> canonize(string source){
@@ -121,9 +121,13 @@ double compaire(multiset<unsigned int>cmp1, multiset<unsigned int>cmp2){
 }
 
 int main() {
+  clock_t time_req;
+	time_req = clock();
   shingleLen = 3; //(слов в сообщении) >= длина шингла > 0
   setlocale(LC_ALL, "Russian");
-  string a = readFile("text1.txt");
-  string b = readFile("text2.txt");
-  cout << compaire(genshingle(canonize(a)), genshingle(canonize(b))) << " %";
+  string text1 = readFile("text1.txt");
+  string text2 = readFile("text2.txt");
+  cout << compaire(genshingle(canonize(text1)), genshingle(canonize(text2))) << " %\n";
+  time_req = clock() - time_req;
+	cout << "Потрачено: " << (float)time_req/CLOCKS_PER_SEC << " секунд" << "\n";
 }
