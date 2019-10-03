@@ -1,5 +1,7 @@
 # shingles algorithm (python vs c++ 11)
 
+---
+
 #### C++
 
 D:\cpp_test\cmake-build-debug\cpp_test.exe
@@ -10,6 +12,6 @@ D:\cpp_test\cmake-build-debug\cpp_test.exe
 
 Process finished with exit code 0
 
-
+---
 
 Вывод прост: Оставьте работу со строками python-у :D
