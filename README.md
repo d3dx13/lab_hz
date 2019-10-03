@@ -25,3 +25,5 @@ D:\shingles-algorithm-python-vs-cpp>python main.py
 ---
 
 Вывод прост: Оставьте работу со строками python-у :D
+
+Или научитесь писать код на **C++**
